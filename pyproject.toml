@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Víðir Valberg Gudmundsson"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.0"
+gunicorn = "^20.1.0"
+django-crispy-forms = "^1.13.0"
+crispy-bootstrap5 = "^0.6"
+django-allauth = "^0.46"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.790.0"
+django-stubs = "^1.5"
+pytest = "^6.0"
+pytest-django = "^3.6"
+coverage = "^6.0"
+
+[tool.black]
+line-length = 88
+
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"

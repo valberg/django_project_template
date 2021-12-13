@@ -1,0 +1,75 @@
+{% load i18n %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Login – {{ site.name }}</title>
+
+    <link href="{% static "/css/bootstrap.min.css" %}" rel="stylesheet"
+          integrity="sha384-8A6VqJCgKATsNvbzGwXr1Y1kRA+dQzm5znASKSOLMVRJ3s2FgO1h9J1HrtVp9pBF"
+          crossorigin="anonymous">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #a8f3f4;
+        }
+
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+        .hr-text:after {
+            content: attr(data-content);
+            padding: 0 4px;
+            position: relative;
+            top: -13px;
+            background-color: #a8f3f4;
+        }
+
+    </style>
+
+</head>
+<body class="text-center">
+
+<main class="form-signin">
+    <img class="mb-4" src="https://new.data.coop/static/img/logo_da.svg" alt=""
+         width="260" height="160">
+
+    {% block non_login_content %}
+    {% endblock %}
+</main>
+
+
+</body>
+</html>

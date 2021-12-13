@@ -1,0 +1,56 @@
+{% extends "account/pre_login_base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block non_login_content %}
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post" action="">
+        {% csrf_token %}
+
+        <label for="id_username"
+               class="visually-hidden">
+            {% trans "E-mail" %}
+        </label>
+        <input type="text"
+               id="id_username"
+               name="login"
+               class="form-control mb-lg-2"
+               placeholder="{% trans "E-mail" %}"
+               required
+               autofocus>
+
+        <label for="id_password" class="visually-hidden">
+            {% trans "Password" %}
+        </label>
+        <input type="password"
+               id="id_password"
+               name="password"
+               class="form-control mb-lg-2"
+               placeholder="{% trans "Password" %}"
+               required>
+
+        <button class="w-100 mb-lg-2 btn btn-lg btn-primary"
+                type="submit">{% trans "Sign in" %}</button>
+    </form>
+    <a href="{% url "account_reset_password" %}"
+       class="w-100 btn btn-lg btn-outline-info">
+        {% trans "Forgot password?" %}
+    </a>
+
+    <hr class="hr-text" data-content="{% trans "Or"|upper %}">
+
+    <a class="w-100 btn btn-lg btn-outline-success"
+       type="submit"
+       href="{% url "account_signup" %}">
+        {% trans "Become a member" %}
+    </a>
+
+{% endblock %}
